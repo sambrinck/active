@@ -41,7 +41,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "curl https://raw.githubusercontent.com/mackliet/church_of_jesus_christ_api/master/church_of_jesus_christ_api/church_of_jesus_christ_api.py",
+	"postCreateCommand": "curl -O https://raw.githubusercontent.com/mackliet/church_of_jesus_christ_api/master/church_of_jesus_christ_api/church_of_jesus_christ_api.py",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"

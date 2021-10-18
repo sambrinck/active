@@ -1,0 +1,12 @@
+
+FROM python:alpine as prod
+
+WORKDIR /code
+
+ADD https://raw.githubusercontent.com/mackliet/church_of_jesus_christ_api/master/church_of_jesus_christ_api/church_of_jesus_christ_api.py .
+COPY src/active.py .
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+CMD python active.py

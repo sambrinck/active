@@ -1,5 +1,4 @@
-#!/bin/env python3
-
+#!/usr/bin/env python3
 
 import gspread
 from gspread.models import Spreadsheet, Worksheet

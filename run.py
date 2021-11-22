@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 from os import environ
 import gspread
 from gspread.models import Spreadsheet, Worksheet
@@ -36,7 +37,8 @@ scope = [
     'https://www.googleapis.com/auth/drive.file'
     ]
 if 'client_key' in environ:
-    creds = ServiceAccountCredentials.from_json(environ['client_key'],scope)
+    # print(environ.get('client_key'))
+    creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(environ['client_key']), scope)
 else:
     creds = ServiceAccountCredentials.from_json_keyfile_name('client_key.json',scope)
 client = gspread.authorize(creds)

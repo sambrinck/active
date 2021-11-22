@@ -1,6 +1,7 @@
 #!/bin/env python3
 
 
+from os import environ
 import gspread
 from gspread.models import Spreadsheet, Worksheet
 from oauth2client.service_account import ServiceAccountCredentials
@@ -35,7 +36,10 @@ scope = [
     'https://www.googleapis.com/auth/drive',
     'https://www.googleapis.com/auth/drive.file'
     ]
-creds = ServiceAccountCredentials.from_json_keyfile_name('client_key.json',scope)
+if 'client_key' in environ:
+    creds = ServiceAccountCredentials.from_json(environ['client_key'],scope)
+else:
+    creds = ServiceAccountCredentials.from_json_keyfile_name('client_key.json',scope)
 client = gspread.authorize(creds)
 
 #Fetch the sheet

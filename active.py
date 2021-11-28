@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 from church_of_jesus_christ_api import ChurchOfJesusChristAPI
 # import church_of_jesus_christ_api 
 from os import environ
@@ -15,6 +15,7 @@ def getActiveMembers() -> list[str]:
 
     adults = {}
     members = api.get_member_list()
+    print(f"Got {len(members)} Members")
     for member in members:
         if member["age"] >= 18:
             adults[member['uuid']] = {
